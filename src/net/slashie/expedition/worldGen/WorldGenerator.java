@@ -222,9 +222,9 @@ public class WorldGenerator {
 	}
 
 
-	private static int parseLongitude(String longStr) {
-		int degrees = Integer.parseInt(longStr.substring(0, longStr.indexOf('º')));
-		int minutes = Integer.parseInt(longStr.substring(longStr.indexOf('º')+1, longStr.indexOf('\'')));
+	private static int parseLongitude(String longStr) {		
+		int degrees = Integer.parseInt(longStr.substring(0, longStr.indexOf("\u00B0")));
+		int minutes = Integer.parseInt(longStr.substring(longStr.indexOf("\u00B0")+1, longStr.indexOf('\'')));
 		boolean west = longStr.substring(longStr.indexOf('\'')+1).equals("W");
 		return (degrees * 60 + minutes) * 60 * (west ? -1 : 1);
 	}
