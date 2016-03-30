@@ -1,5 +1,0 @@
-java.lang.RuntimeException: Culture File Not Found
-	at net.slashie.serf.game.SworeGame.crash(SworeGame.java:298)
-	at net.slashie.expedition.worldGen.WorldGenerator.addNativeSettlements(WorldGenerator.java:55)
-	at net.ck.expedition.modeltest.WorldTest.<init>(WorldTest.java:27)
-	at net.ck.expedition.modeltest.WorldTest.main(WorldTest.java:18)
