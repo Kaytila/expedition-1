@@ -38,6 +38,7 @@ public class Layout {
 	public Position POS_DATE;
 	public Position POS_TIME;
 	public Rectangle ACTIONS_PANEL_BOUNDS; 
+	public Rectangle COMMAND_PANEL_BOUNDS;
 	public Position POS_JOURNAL_ACTION;
 	public Position POS_MUSIC_ACTION;
 	public Position POS_SFX_ACTION;
@@ -68,6 +69,7 @@ public class Layout {
 	public void initialize(Properties p){
 		MSGBOX_BOUNDS = PropertyFilters.getRectangle(p.getProperty("MSGBOX_BOUNDS"));
 		ACTIONS_PANEL_BOUNDS = PropertyFilters.getRectangle(p.getProperty("ACTIONS_PANEL_BOUNDS"));
+		COMMAND_PANEL_BOUNDS = PropertyFilters.getRectangle(p.getProperty("COMMAND_PANEL_BOUNDS"));
 		PROMPTBOX_BOUNDS = PropertyFilters.getRectangle(p.getProperty("PROMPTBOX_BOUNDS"));
 		POPUPMESSAGE_BOUNDS = PropertyFilters.getRectangle(p.getProperty("POPUPMESSAGE_BOUNDS"));
 		BATTLE_OUTCOME_BOUNDS = PropertyFilters.getRectangle(p.getProperty("BATTLE_OUTCOME_BOUNDS"));
