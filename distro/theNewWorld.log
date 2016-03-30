@@ -1,0 +1,308 @@
+DEBUG - Setting Up Test Case
+INFO - Loading res/denzi/expedition-denzi.ui graphics pack.
+DEBUG - Start: initializeGraphics
+DEBUG - End: initializeGraphics
+DEBUG - start: initialize Data Objects
+INFO - Loading Data
+DEBUG - end: initialize Data Objects
+DEBUG - Grid Level reader constructor
+DEBUG - Expedition Level reader constructor
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - class net.slashie.expedition.world.ExpeditionMacroLevelconstructor
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - A thick fog layer covers your expedition
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - FOG: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The sky clears
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - Clear weather: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Dark, stormy clouds cover the sky
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - STORM: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Rain starts pouring
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - rain weather: We have cought fish: 20
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Snow falls over the land
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - SNOW: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Very strong winds blow!
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - GALE_WIND: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The wind blows strongly
+DEBUG - WINDY current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - WINDY: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The sand rises fiercely!
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - DUST_STORM: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The wind blows strongly
+DEBUG - Position: (-261900,42300,0)
+DEBUG - test for land, current cell Forest
+DEBUG - 34
+DEBUG - 20
+DEBUG - Position: (-261900,42300,0)
+DEBUG - We have foraged 80 fruit!
+DEBUG - Position: (-261900,42300,0)
+DEBUG - Position: (-261900,42300,0)
+DEBUG - Position: (-261900,42300,0)
+DEBUG - The fury of the sea is unleashed!
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - HURRICANE: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Clouds cover the sky
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - cloudy weather: We have cought fish: 20
+DEBUG - Setting Up Test Case
+INFO - Loading res/denzi/expedition-denzi.ui graphics pack.
+DEBUG - Start: initializeGraphics
+DEBUG - End: initializeGraphics
+DEBUG - start: initialize Data Objects
+INFO - Loading Data
+DEBUG - end: initialize Data Objects
+DEBUG - Grid Level reader constructor
+DEBUG - Expedition Level reader constructor
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - class net.slashie.expedition.world.ExpeditionMacroLevelconstructor
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - A thick fog layer covers your expedition
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - FOG: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The sky clears
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - Clear weather: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Dark, stormy clouds cover the sky
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - STORM: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Rain starts pouring
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - rain weather: We have cought fish: 20
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Snow falls over the land
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - SNOW: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Very strong winds blow!
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - GALE_WIND: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The wind blows strongly
+DEBUG - WINDY current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - WINDY: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The sand rises fiercely!
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - DUST_STORM: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The wind blows strongly
+DEBUG - Position: (-261900,42300,0)
+DEBUG - test for land, current cell Forest
+DEBUG - 34
+DEBUG - 20
+DEBUG - multiplier: 4
+DEBUG - Position: (-261900,42300,0)
+DEBUG - We have foraged 80 fruit!
+DEBUG - Position: (-261900,42300,0)
+DEBUG - Position: (-261900,42300,0)
+DEBUG - Position: (-261900,42300,0)
+DEBUG - The fury of the sea is unleashed!
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - HURRICANE: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Clouds cover the sky
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - cloudy weather: We have cought fish: 20
+DEBUG - Setting Up Test Case
+INFO - Loading res/denzi/expedition-denzi.ui graphics pack.
+DEBUG - Start: initializeGraphics
+DEBUG - End: initializeGraphics
+DEBUG - start: initialize Data Objects
+INFO - Loading Data
+DEBUG - end: initialize Data Objects
+DEBUG - Grid Level reader constructor
+DEBUG - Expedition Level reader constructor
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - class net.slashie.expedition.world.ExpeditionMacroLevelconstructor
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - A thick fog layer covers your expedition
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - FOG: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The sky clears
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - Clear weather: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Dark, stormy clouds cover the sky
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - STORM: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Rain starts pouring
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - rain weather: We have cought fish: 20
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Snow falls over the land
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - SNOW: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Very strong winds blow!
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - GALE_WIND: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The wind blows strongly
+DEBUG - WINDY current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - WINDY: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The sand rises fiercely!
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - DUST_STORM: We have cought fish: 30
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - The wind blows strongly
+DEBUG - Position: (-261900,42300,0)
+DEBUG - test for land, current cell Forest
+DEBUG - total units: 34
+DEBUG - forage quantity for forest: 20
+DEBUG - multiplier: 4
+DEBUG - Position: (-261900,42300,0)
+DEBUG - We have foraged 80 fruit!
+DEBUG - Position: (-261900,42300,0)
+DEBUG - Position: (-261900,42300,0)
+DEBUG - Position: (-261900,42300,0)
+DEBUG - The fury of the sea is unleashed!
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - HURRICANE: We have cought fish: 10
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Position: (0,0,0)
+DEBUG - Clouds cover the sky
+DEBUG - current cell Deep Water
+DEBUG - Position: (0,0,0)
+DEBUG - cloudy weather: We have cought fish: 20
