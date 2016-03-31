@@ -149,7 +149,7 @@
 		<appearance id = "GOLD_ARTIFACTS" x = "12" y = "9"/>
 		<appearance id = "NATIVE_ARTIFACTS" x = "13" y = "9"/>
 		<!-- Weapons -->
-		<appearance id = "STEEL_SPEAR" x = "12" y = "10"/>
+		<appearance id = "STEEL_SPEAR" x = "1" y = "10"/>
 		<appearance id = "STEEL_SWORD" x = "2" y = "10"/>
 		<appearance id = "WOODEN_CROSSBOW" x = "3" y = "10"/>
 		<appearance id = "COMPOSITE_BOW" x = "4" y = "10"/>
@@ -165,7 +165,7 @@
 		<appearance id = "COW" x = "2" y = "11"/>
 		<appearance id = "HORSE" x = "3" y = "11"/>
 		<appearance id = "PIGS" x = "4" y = "11"/>
-		<appearance id = "LLAMA2" x = "5" y = "11"/>
+		<appearance id = "LLAMA" x = "5" y = "11"/>
 		<!-- Vehicles -->
 		<appearance id = "CARRACK" x = "1" y = "12"/>
 		<appearance id = "CARAVEL" x = "2" y = "12"/>

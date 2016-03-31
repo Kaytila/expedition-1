@@ -165,7 +165,7 @@
 		<appearance id = "COW" x = "2" y = "11"/>
 		<appearance id = "HORSE" x = "3" y = "11"/>
 		<appearance id = "PIGS" x = "4" y = "11"/>
-		<appearance id = "LLAMA2" x = "5" y = "11"/>
+		<appearance id = "LLAMA" x = "5" y = "11"/>
 		<!-- Vehicles -->
 		<appearance id = "CARRACK" x = "1" y = "12"/>
 		<appearance id = "CARAVEL" x = "2" y = "12"/>
