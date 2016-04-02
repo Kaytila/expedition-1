@@ -219,7 +219,7 @@ public class ExpeditionGame extends SworeGame
 
 	}
 
-	private void setGameTime(int day, int month, int year, int hours, int minutes)
+	public void setGameTime(int day, int month, int year, int hours, int minutes)
 	{
 		currentTime = Calendar.getInstance();
 		currentTime.set(Calendar.YEAR, year);

@@ -55,8 +55,7 @@ public class ExpeditionMacroLevel extends ExpeditionLevelReader
 		addActor(currentHourShiftAgent);
 		addActor(currentForageAgent);
 		addActor(currentWeeklyAgent);
-		addActor(currentRandomEventsAgent);
-		logger.debug(getClass().toString() + "constructor");
+		addActor(currentRandomEventsAgent);		
 	}
 
 	private Pair<Integer, Integer> handyReusablePair = new Pair<Integer, Integer>(0, 0);
@@ -806,49 +805,7 @@ public class ExpeditionMacroLevel extends ExpeditionLevelReader
 		return nativeTowns;
 	}
 
-	public void addMessage(String what, Position where)
-	{
-		addMessage(new Message(what, where, formatTime(ExpeditionGame.getCurrentGame().getGameTime())));
-	}
-
-	private String formatTime(Calendar gameTime)
-	{
-		return ExpeditionUserInterface.months[gameTime.get(Calendar.MONTH)] + " " + gameTime.get(Calendar.DATE) + ", "
-				+ getTimeDescriptionFromHour(gameTime.get(Calendar.HOUR_OF_DAY));
-	}
-
-	public static String getTimeDescriptionFromHour(int i)
-	{
-		if (i > 22)
-		{
-			return "Midnight";
-		}
-		else if (i > 18)
-		{
-			return "Night";
-		}
-		else if (i > 14)
-		{
-			return "Afternoon";
-		}
-		else if (i > 10)
-		{
-			return "Noon";
-		}
-		else if (i > 6)
-		{
-			return "Morning";
-		}
-		else if (i > 4)
-		{
-			return "Dawn";
-		}
-		else
-		{
-			return "Midnight";
-		}
-	}
-
+	
 	@Override
 	public Appearance filterAppearance(Appearance appearance)
 	{

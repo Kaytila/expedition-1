@@ -16,6 +16,7 @@ import net.slashie.expedition.domain.Store;
 import net.slashie.expedition.domain.StoreItemInfo;
 import net.slashie.expedition.domain.StoreShipInfo;
 import net.slashie.expedition.domain.Vehicle;
+import net.slashie.expedition.domain.Water;
 import net.slashie.expedition.domain.Weapon;
 import net.slashie.expedition.domain.Armor.ArmorType;
 import net.slashie.expedition.domain.Expedition.MovementSpeed;
@@ -487,10 +488,30 @@ public class ExpeditionDAO {
 					null, 800),
 			
 			//Goods
-			new Food("BISCUIT", "Biscuit", "Biscuit", "Food Ration", 3, 1, 1, 1, StorageType.WAREHOUSE),
+			
 			new Food("BREAD", "Bread", "Bread", "Food Ration", 1, 1, 1, 2, StorageType.WAREHOUSE),
 			new Food("DRIED_MEAT", "Dried Meat", "Dried Meat", "Food Ration", 2, 1, 1,1, StorageType.WAREHOUSE),
 			new Food("SAUERKRAUT", "Sauerkraut","Sauerkraut", "Food Ration", 2, 1, 2,1, StorageType.WAREHOUSE),
+			
+			new Food("BISCUIT",
+					"Biscuit",
+					"Biscuit", 
+					"Food Ration", 
+					3, 
+					1, 
+					1, 
+					1, 
+					StorageType.WAREHOUSE),
+			new Water("FRESHWATER", 
+					"Freshwater", 
+					"Freshwater", 
+					"Liquid of Life", 
+					3, 
+					1, 
+					20,
+					5, 
+					StorageType.WAREHOUSE),
+			
 			
 			new Food("BEANS", "Beans", "Beans", "Food Ration", 2, 1, 4,1, StorageType.GRANARY),
 			new Food("MAIZE", "Maize", "Maize", "Food Ration", 3, 1, 2,1, StorageType.GRANARY),
@@ -500,7 +521,8 @@ public class ExpeditionDAO {
 			new Food("FISH", "Fish", "Fish", "Food Ration", 1, 1, 1, 1, StorageType.WAREHOUSE),
 			new Food("FRUIT", "Fruit", "Fruit", "Food Ration", 3, 1, 1, 1, StorageType.WAREHOUSE),
 			
-			new ExpeditionItem("FRESHWATER", "Freshwater", "Freshwater", "Liquid of Life", "FRESHWATER", 2, GoodType.SUPPLIES, 20,5, StorageType.WAREHOUSE),
+			
+			
 			new ExpeditionItem("RUM", "Rum", "Rum", "Liquid of Life", "RUM", 2, GoodType.SUPPLIES, 400,500, StorageType.WAREHOUSE),
 			
 			new ExpeditionItem("WOOD", "Wooden log", "Wooden logs", "Wood piece", "WOOD", 10, GoodType.SUPPLIES, 1,1, StorageType.WAREHOUSE),
@@ -793,7 +815,7 @@ public class ExpeditionDAO {
 		List<Pair<Double,String>> ret = new ArrayList<Pair<Double,String>>();
 		for (String pairString: pairs){
 			String[] splitPair = pairString.split(",");
-			ret.add(new Pair<Double, String>(Double.parseDouble(splitPair[1])/100.0d, splitPair[0]));
+			ret.add(new Pair<Double, String>(Double.parseDouble(splitPair[1].trim())/100.0d, splitPair[0].trim()));
 		}
 		return ret;
 	}

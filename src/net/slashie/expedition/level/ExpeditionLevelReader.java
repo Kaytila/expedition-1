@@ -32,8 +32,7 @@ public abstract class ExpeditionLevelReader extends GridLevelReader implements E
 			Hashtable<String, String> charmap, Position startPosition, GlobeModel globeModel)
 	{
 		super(levelNameset, levelWidth, levelHeight, gridWidth, gridHeight, charmap, startPosition);
-		this.globeModel = globeModel;
-		logger.debug("Expedition Level reader constructor");
+		this.globeModel = globeModel;		
 	}
 
 	public String getMusicKey()

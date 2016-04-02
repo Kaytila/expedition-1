@@ -39,7 +39,7 @@ public class TestForageFood
 	private static ExpeditionItem captain;
 	private static ExpeditionItem explorer;
 	private static ExpeditionItem food;
-	static ExpeditionMacroLevel level;
+	private static ExpeditionMacroLevel level;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception
@@ -51,6 +51,7 @@ public class TestForageFood
 		RunExpedition.initializeData();
 
 		ExpeditionGame game = new ExpeditionGame();
+		game.setGameTime(3, 8, 1492, 13, 0);
 		ret = new Expedition(game);
 		a = new ForageFood();
 
@@ -232,16 +233,18 @@ public class TestForageFood
 		OverworldExpeditionCell cell = (OverworldExpeditionCell) ret.getLevel().getMapCell(new Position(0, 0, 0));
 		logger.debug(level.getWeather().toString() + " " + "current cell " + cell.getShortDescription());
 		a.setPerformer(ret);
-		a.execute(100);		
+		a.execute(100);
+		int multiplier = (int) Math.ceil(ret.getItemCount("SAILOR") / 12.0d);
+		logger.debug("forage quantity for deep sea: " + cell.getForageQuantity());
+		assertEquals(cell.getForageQuantity()* multiplier, 30 );
 	}
 
 	@Test
-	public void testWindyLand()
+	public void testWindyForest()
 	{
 
 		level.setPlayer(ret);
 		ret.setPosition(new Position(-261900,42300,0));
-		//-261900,42300,0		
 		level.setWeather(Weather.WINDY);
 		OverworldExpeditionCell cell = (OverworldExpeditionCell) ret.getLevel().getMapCell(ret.getPosition());
 		int multiplier = (int) Math.ceil(ret.getTotalUnits() / 10.0d);
@@ -251,8 +254,26 @@ public class TestForageFood
 		logger.debug("multiplier: " + multiplier);
 		a.setPerformer(ret);
 		a.execute(100);
-		
 		assertEquals(multiplier*cell.getForageQuantity(), 80);
 	}
+	
+	
+	@Test
+	public void testWindyGrass()
+	{
 
+		level.setPlayer(ret);
+		ret.setPosition(new Position(-269820,39600,0));
+		level.setWeather(Weather.WINDY);
+		OverworldExpeditionCell cell = (OverworldExpeditionCell) ret.getLevel().getMapCell(ret.getPosition());
+		int multiplier = (int) Math.ceil(ret.getTotalUnits() / 10.0d);
+		logger.debug("test for land, current cell " + cell.getShortDescription());
+		logger.debug("total units: " + ret.getTotalUnits());
+		logger.debug("forage quantity for grass: " + cell.getForageQuantity());
+		logger.debug("multiplier: " + multiplier);
+		a.setPerformer(ret);
+		a.execute(100);
+		assertEquals(multiplier*cell.getForageQuantity(), 80);
+	}
+	
 }

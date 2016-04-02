@@ -57,8 +57,8 @@ public class WorldGenerator
 				while (line != null)
 				{
 					String[] row = line.split(",");
-					Culture c = ExpeditionDAO.getCulture(row[2]);
-					Position p = new Position(Integer.parseInt(row[0]), Integer.parseInt(row[1]));
+					Culture c = ExpeditionDAO.getCulture(row[2].trim());
+					Position p = new Position(Integer.parseInt(row[0].trim()), Integer.parseInt(row[1].trim()));
 					// Translate position to lat-long
 					GlobeMapModel.getSingleton().transformIntoLatLong(p);
 					cultureCenters.add(new Pair<Position, Culture>(p, c));
@@ -144,7 +144,10 @@ public class WorldGenerator
 		int year;
 		ExpeditionMacroLevel level;
 	}
-
+/**
+ * ret adding western cities to the world
+ * @param - the macrolevel meaning the huge overworld map
+ */
 	public static void addCities(ExpeditionMacroLevel ret)
 	{
 		logger.info("Start: addCities Arguments: " + ret);
@@ -184,6 +187,11 @@ public class WorldGenerator
 		}
 	}
 
+	/**
+	 * 
+	 * @param geoPoliticalElement
+	 * @param context
+	 */
 	private static void processGeopolitical(Element geoPoliticalElement, GenerationContext context)
 	{
 		NodeList baseNodes = geoPoliticalElement.getChildNodes();
@@ -200,7 +208,11 @@ public class WorldGenerator
 			}
 		}
 	}
-
+/**
+ * 
+ * @param settlementsElement
+ * @param context
+ */
 	private static void processSettlements(Element settlementsElement, GenerationContext context)
 	{
 		NodeList baseNodes = settlementsElement.getChildNodes();
@@ -242,6 +254,12 @@ public class WorldGenerator
 		}
 	}
 
+	/**
+	 * 
+	 * @param settlementElement
+	 * @param historyElement
+	 * @param context
+	 */
 	private static void processSettlementHistory(Element settlementElement, Element historyElement,
 			GenerationContext context)
 	{
@@ -270,6 +288,12 @@ public class WorldGenerator
 		}
 	}
 
+	/**
+	 * 
+	 * @param settlementElement
+	 * @param settlementName
+	 * @param context
+	 */
 	private static void createSettlement(Element settlementElement, String settlementName, GenerationContext context)
 	{
 		logger.debug("Start: createSettlement Arguments: " + settlementElement.toString() + " " + settlementName + " "
@@ -293,18 +317,28 @@ public class WorldGenerator
 		logger.debug("End: createSettlement");
 	}
 
+	/**
+	 * 
+	 * @param longStr
+	 * @return
+	 */
 	private static int parseLongitude(String longStr)
 	{
-		logger.debug("Start: parseLongitude Arguments: " + longStr);
+		//logger.debug("Start: parseLongitude Arguments: " + longStr);
 		int degrees = Integer.parseInt(longStr.substring(0, longStr.indexOf("º")));
 		int minutes = Integer.parseInt(longStr.substring(longStr.indexOf("º") + 1, longStr.indexOf('\'')));
 		boolean west = longStr.substring(longStr.indexOf('\'') + 1).equals("W");
 		return (degrees * 60 + minutes) * 60 * (west ? -1 : 1);
 	}
 
+	/**
+	 * 
+	 * @param latStr
+	 * @return
+	 */
 	private static int parseLatitude(String latStr)
 	{
-		logger.info("Start: parseLatitude Arguments: " + latStr);
+		//logger.info("Start: parseLatitude Arguments: " + latStr);
 		int degrees = Integer.parseInt(latStr.substring(0, latStr.indexOf("º")));
 		int minutes = Integer.parseInt(latStr.substring(latStr.indexOf("º") + 1, latStr.indexOf("'")));
 		boolean north = latStr.substring(latStr.indexOf("'") + 1).equals("N");
@@ -313,6 +347,12 @@ public class WorldGenerator
 
 	public static List<Pair<Position, AnimalNest>> animalNests = new ArrayList<Pair<Position, AnimalNest>>();
 
+	/**
+	 *  adding animal nests to the game
+	 *  reading from animalNests.properties
+	 *  
+	 *  not yet sure what that actually is meant to be, seems like those are animal spawners
+	 */
 	public static void addAnimalNests()
 	{
 		logger.info("Start: addAnimalNests Arguments: ");
@@ -326,8 +366,8 @@ public class WorldGenerator
 				while (line != null)
 				{
 					String[] row = line.split(",");
-					AnimalNest n = ExpeditionDAO.getAnimalNest(row[2]);
-					Position p = new Position(Integer.parseInt(row[0]), Integer.parseInt(row[1]));
+					AnimalNest n = ExpeditionDAO.getAnimalNest(row[2].trim());
+					Position p = new Position(Integer.parseInt(row[0].trim()), Integer.parseInt(row[1].trim()));
 					animalNests.add(new Pair<Position, AnimalNest>(p, n));
 					line = r.readLine();
 				}
@@ -346,6 +386,12 @@ public class WorldGenerator
 
 	public static List<Pair<Position, BotanyCrop>> botanyCrops = new ArrayList<Pair<Position, BotanyCrop>>();
 
+	/**
+	 * adding additional crops to the world
+	 * reading from botanyCrops.properties
+	 * 
+	 * not yet sure what that actually does
+	 */
 	public static void addBotanyCrops()
 	{
 		logger.info("Start: addBotanyCrops Arguments: ");
@@ -357,8 +403,8 @@ public class WorldGenerator
 			while (line != null)
 			{
 				String[] row = line.split(",");
-				BotanyCrop c = ExpeditionDAO.getBotanyCrop(row[2]);
-				Position p = new Position(Integer.parseInt(row[0]), Integer.parseInt(row[1]));
+				BotanyCrop c = ExpeditionDAO.getBotanyCrop(row[2].trim());
+				Position p = new Position(Integer.parseInt(row[0].trim()), Integer.parseInt(row[1].trim()));
 				botanyCrops.add(new Pair<Position, BotanyCrop>(p, c));
 				line = r.readLine();
 			}

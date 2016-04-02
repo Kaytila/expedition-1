@@ -337,17 +337,38 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 
 	private int winBalance = 0;
 
+	private int thirstResistance = 0;
+	private int hungerResistance = 0;
+	
+	private int maxThirstResistance;
+	private int maxHungerResistance;
+	
 	public Expedition(ExpeditionGame game)
 	{
 		HANDLE_FEATURES = false;
 		setGame(game);
+		setExpeditionMorale(5);
+		setThirstResistance(5);
+		setMaxThirstResistance(5);
+		setHungerResistance(7);
+		setMaxHungerResistance(7);		
 		foodConsumerDelegate = new FoodConsumerDelegate(this);
 		game.addFoodConsumer(this);
-		expeditionMorale = 5;
+
 		discoveryLog = new ArrayList<ExpeditionDiscovery>();
 		// discoveryLog.add(new ExpeditionDiscovery("You discovered an ancient
 		// ruin of Tairona culture", Discovery.Ruin, "August 23", 23));
 		setFame(0);
+	}
+
+	public int getExpeditionMorale()
+	{
+		return expeditionMorale;
+	}
+
+	public void setExpeditionMorale(int expeditionMorale)
+	{
+		this.expeditionMorale = expeditionMorale;
 	}
 
 	public void addAccountedGold(int valuables)
@@ -619,7 +640,7 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 					Calendar gameTime = ExpeditionGame.getCurrentGame().getGameTime();
 					String time = ExpeditionUserInterface.months[gameTime.get(Calendar.MONTH)] + " "
 							+ gameTime.get(Calendar.DATE) + ", "
-							+ ExpeditionMacroLevel.getTimeDescriptionFromHour(gameTime.get(Calendar.HOUR_OF_DAY));
+							+ MessengerService.getTimeDescriptionFromHour(gameTime.get(Calendar.HOUR_OF_DAY));
 					addDiscoveryLog(new ExpeditionDiscovery(discoveryText, Discovery.Plant, time, 5));
 				}
 			}
@@ -822,6 +843,7 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 		foodConsumerDelegate.consumeFood();
 	}
 
+	/*
 	@Override
 	public void consumeWater()
 	{
@@ -847,7 +869,13 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 			}
 		}
 	}
-
+*/
+	public void consumeWater()
+	{
+		foodConsumerDelegate.consumeWater();	
+		//getLevel().addMessage("test");
+	}
+	
 	@Override
 	public void counterFinished(String counterId)
 	{
@@ -1132,7 +1160,7 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 					else
 					{
 						food = "FISH";
-						int multiplier = (int) Math.ceil(getItemCount("SAILOR") / 10.0d);
+						int multiplier = (int) Math.ceil(getItemCount("SAILOR") / 12.0d);
 						quantity *= multiplier;
 						if (quantity > 0)
 						{
@@ -1353,9 +1381,14 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 		List<Equipment> inventory = getInventory();
 		for (Equipment equipment : inventory)
 		{
-			if (equipment.getItem() instanceof Food)
+			/*if (equipment.getItem().getFullID().equals("FRESHWATER"))
 			{
-				Food good = (Food) equipment.getItem();
+				Water water = (Water) equipment.getItem();
+				currentWater += water.getUnitsFedPerGood() * equipment.getQuantity();
+			}*/
+			if (equipment.getItem() instanceof Water)
+			{
+				Water good = (Water) equipment.getItem();
 				currentWater += good.getUnitsFedPerGood() * equipment.getQuantity();
 			}
 		}
@@ -1403,6 +1436,10 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 		}
 	}
 
+	/**
+	 * returns daily Food consumption, takes hibernate into account
+	 */
+	@Override
 	public int getDailyFoodConsumption()
 	{
 		if (isHibernate())
@@ -1415,6 +1452,10 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 		}
 	}
 
+	
+	/**
+	 * returns daily water consumption, takes hibernate into account
+	 */
 	@Override
 	public int getDailyWaterConsumption()
 	{
@@ -1538,14 +1579,7 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 
 	}
 
-	public int getFoodDays()
-	{
-		if (getDailyFoodConsumption() == 0)
-		{
-			return 0;
-		}
-		return (int) Math.round((double) getCurrentFood() / (double) getDailyFoodConsumption());
-	}
+
 
 	@Override
 	public Position getFreeSquareAround(Position p)
@@ -1923,6 +1957,29 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 		return (int) Math.round((double) getCurrentFood() / (double) foodConsumerDelegate.getDailyFoodConsumption());
 	}
 
+	
+	public int getFoodDays()
+	{
+		if (getDailyFoodConsumption() == 0)
+		{
+			return 0;
+		}
+		return (int) Math.round((double) getCurrentFood() / (double) getDailyFoodConsumption());
+	}
+	
+	
+	/**
+	 * Ignores extreme food consumption conditions (like hibernating)
+	 * 
+	 * @returns the water days, 
+	 */
+	public int getProjectedWaterDays()
+	{
+		return (int) Math.round((double) getCurrentWater() / (double) foodConsumerDelegate.getDailyWaterConsumption());
+	}
+	
+	
+	
 	private ExpeditionUnit getRandomUnitFair()
 	{
 		int totalUnits = getTotalUnits();
@@ -2476,9 +2533,10 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 			i++;
 		}
 		if (quantity == 1)
-			getLevel().addMessage(killMessage + " " + cause + " to death.");
+			//getLevel().addMessage(killMessage + " " + cause + " to death.");
+			MessengerService.addMessage(killMessage + " " + cause + " to death.", getPosition());
 		else
-			getLevel().addMessage(killMessage + " " + cause + " to death.");
+			MessengerService.addMessage(killMessage + " " + cause + " to death.", getPosition());
 	}
 
 	@Override
@@ -3439,6 +3497,44 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 			checkDrown();
 		}
 	}
-	
-	
+
+	public int getThirstResistance()
+	{
+		return thirstResistance;
+	}
+
+	public void setThirstResistance(int thirstResistance)
+	{		
+		this.thirstResistance = thirstResistance;
+	}
+
+	public int getHungerResistance()
+	{
+		return hungerResistance;
+	}
+
+	public void setHungerResistance(int hungerResistance)
+	{	
+		this.hungerResistance = hungerResistance;
+	}
+
+	public int getMaxHungerResistance()
+	{
+		return maxHungerResistance;
+	}
+
+	public void setMaxHungerResistance(int maxHungerResistance)
+	{
+		this.maxHungerResistance = maxHungerResistance;
+	}
+
+	public int getMaxThirstResistance()
+	{
+		return maxThirstResistance;
+	}
+
+	public void setMaxThirstResistance(int maxThirstResistance)
+	{
+		this.maxThirstResistance = maxThirstResistance;
+	}
 }

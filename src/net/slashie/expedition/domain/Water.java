@@ -1,7 +1,11 @@
 package net.slashie.expedition.domain;
 import org.apache.log4j.Logger;
 import net.slashie.expedition.item.StorageType;
-
+/**
+ * 
+ * @author Claus
+ * Water Class, currentry trying to work the same way as food is working, though it isnt
+ */
 public class Water extends ExpeditionItem
 {
 	/**

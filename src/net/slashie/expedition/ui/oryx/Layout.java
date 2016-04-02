@@ -34,6 +34,7 @@ public class Layout {
 	public Position POS_MOOD_ICON;
 	public Position POS_SUPPLIES_TITLE;
 	public Position POS_SUPPLIES;
+	public Position POS_WATER;
 	public int POS_LOCATION_Y;
 	public Position POS_DATE;
 	public Position POS_TIME;
@@ -48,6 +49,7 @@ public class Layout {
 	public Position POS_BEARING;
 	public Position POS_SEADAYS;
 	public Position POS_SUPPLIES_MOD;
+	public Position POS_GOLD;
 	public Position POS_VERSION;
 	
 	public Position POS_TITLE_VERSION;
@@ -101,7 +103,9 @@ public class Layout {
 		POS_TIME = PropertyFilters.getPosition(p.getProperty("POS_TIME"));
 		POS_BEARING = PropertyFilters.getPosition(p.getProperty("POS_BEARING"));
 		POS_SEADAYS = PropertyFilters.getPosition(p.getProperty("POS_SEADAYS"));
-		POS_SUPPLIES_MOD = PropertyFilters.getPosition(p.getProperty("POS_SUPPLIES_MOD"));
+		POS_SUPPLIES_MOD = PropertyFilters.getPosition(p.getProperty("POS_SUPPLIES_MOD"));		
+		POS_WATER = PropertyFilters.getPosition(p.getProperty("POS_WATER"));
+		POS_GOLD = PropertyFilters.getPosition(p.getProperty("POS_GOLD"));
 		POS_VERSION = PropertyFilters.getPosition(p.getProperty("POS_VERSION"));
 		
 		POS_LOCATION_Y = PropertyFilters.inte(p.getProperty("POS_LOCATION_Y"));

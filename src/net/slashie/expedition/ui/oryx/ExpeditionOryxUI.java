@@ -24,6 +24,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import org.apache.log4j.Logger;
+import net.ck.expedition.utils.swing.MessengerService;
 import net.ck.expedition.utils.swing.TutorialComponent;
 import net.slashie.expedition.domain.AssaultOutcome;
 import net.slashie.expedition.domain.Expedition;
@@ -1061,7 +1062,7 @@ public class ExpeditionOryxUI extends GFXUserInterface implements ExpeditionUser
 		 * "PM";
 		 */
 
-		String generalStr = ExpeditionMacroLevel.getTimeDescriptionFromHour(gameTime.get(Calendar.HOUR_OF_DAY));
+		String generalStr = MessengerService.getTimeDescriptionFromHour(gameTime.get(Calendar.HOUR_OF_DAY));
 		// Define showing
 		boolean showWind = statsExpedition.getMovementMode().equals(MovementMode.SHIP);
 		boolean showCurrent = false;
@@ -1073,7 +1074,12 @@ public class ExpeditionOryxUI extends GFXUserInterface implements ExpeditionUser
 				+ gameTime.get(Calendar.DATE);
 		String ui_time = generalStr;
 		String ui_gold = getExpedition().getAccountedGold() + " Gold";
-		String ui_food = isOnMacroLevel ? statsExpedition.getOffshoreFoodDays() + " days" : "";
+		/**
+		 * What difference does the movement type make? food consumption is food consumption ???
+		 */
+		String ui_food = isOnMacroLevel ? statsExpedition.getProjectedFoodDays()+ " days of food" : "";
+		//String ui_food = isOnMacroLevel ? statsExpedition.getOffshoreFoodDays() + " days of food" : "";
+		String ui_water = isOnMacroLevel ? statsExpedition.getProjectedWaterDays() + " days of water" : "";
 		String ui_foodModifier = TemperatureRules.getTemperatureFoodModifierString(
 				getExpedition().getLocation().getTemperature()) + (statsExpedition.isForaging() ? " (foraging)" : "");
 		String ui_carrying;
@@ -1139,7 +1145,7 @@ public class ExpeditionOryxUI extends GFXUserInterface implements ExpeditionUser
 		{
 			ui_shipStatus = "";
 		}
-		String ui_water = "WATER: <0>";
+		//String ui_water = "WATER: <0>";
 		String ui_windStrength = "<Strenght>";
 		String ui_currentDirection = "<D>";
 		String ui_currentStrength = "<Strength>";
@@ -1201,6 +1207,8 @@ public class ExpeditionOryxUI extends GFXUserInterface implements ExpeditionUser
 					TITLE_COLOR);
 			si.printAtPixel(getUILayer(), layout.POS_SUPPLIES.x, layout.POS_SUPPLIES.y, ui_food);
 			si.printAtPixel(getUILayer(), layout.POS_SUPPLIES_MOD.x, layout.POS_SUPPLIES_MOD.y, ui_foodModifier);
+			si.printAtPixel(getUILayer(), layout.POS_WATER.x, layout.POS_WATER.y, ui_water);
+			si.printAtPixel(getUILayer(), layout.POS_GOLD.x, layout.POS_GOLD.y, ui_gold);
 
 			si.drawImage(getUILayer(), layout.POS_MOOD_ICON.x, layout.POS_MOOD_ICON.y,
 					MORALE_IMAGES[statsExpedition.getMorale()]);

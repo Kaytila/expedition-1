@@ -315,19 +315,18 @@ public class SpainCastle extends StaticPattern implements Serializable
 				ret.addItemOffshore(ItemFactory.createItem("CARPENTER"), 5);
 				ret.addItemOffshore(ItemFactory.createItem("STEEL_SPEAR"), 82);
 				ret.addItemOffshore(ItemFactory.createItem("STEEL_SWORD"), 3);
-				ret.addItemOffshore(ItemFactory.createItem("BREASTPLATE"), 3);
-				ret.addItemOffshore(ItemFactory.createItem("FRESHWATER"), 1000);
+				ret.addItemOffshore(ItemFactory.createItem("BREASTPLATE"), 3);				
 				ret.addItemOffshore(ItemFactory.createItem("EXPLORER"), 2);
 				ret.addItemOffshore(ItemFactory.createItem("BISCUIT"), 15000);
-				ret.addItemOffshore(ItemFactory.createItem("FRESHWATER"), 15000);
+				ret.addItemOffshore(ItemFactory.createItem("FRESHWATER"), 30000);
 				ret.addItemOffshore(ItemFactory.createItem("WOOD"), 100);
 				//TODO: remove additional people again
-				ret.addItemOffshore(ItemFactory.createItem("SOLDIER"), 5);
-				ret.addItemOffshore(ItemFactory.createItem("BREASTPLATE"), 5);
-				ret.addItemOffshore(ItemFactory.createItem("STEEL_SWORD"), 5);
-				ret.addItemOffshore(ItemFactory.createItem("MARINE"), 5);
-				ret.addItemOffshore(ItemFactory.createItem("STUDDED_VEST"), 5);
-				ret.addItemOffshore(ItemFactory.createItem("HARQUEBUS"), 5);
+				//ret.addItemOffshore(ItemFactory.createItem("SOLDIER"), 5);
+				//ret.addItemOffshore(ItemFactory.createItem("BREASTPLATE"), 5);
+				//ret.addItemOffshore(ItemFactory.createItem("STEEL_SWORD"), 5);
+				//ret.addItemOffshore(ItemFactory.createItem("MARINE"), 5);
+				//ret.addItemOffshore(ItemFactory.createItem("STUDDED_VEST"), 5);
+				//ret.addItemOffshore(ItemFactory.createItem("HARQUEBUS"), 5);
 				ret.setAccountedGold(23500);
 				break;
 			case 1:
@@ -337,7 +336,7 @@ public class SpainCastle extends StaticPattern implements Serializable
 				ret.addItemOffshore(ItemFactory.createItem("STEEL_SPEAR"), 82);
 				ret.addItemOffshore(ItemFactory.createItem("STEEL_SWORD"), 3);
 				ret.addItemOffshore(ItemFactory.createItem("BREASTPLATE"), 3);
-				ret.addItemOffshore(ItemFactory.createItem("FRESHWATER"), 1000);
+				ret.addItemOffshore(ItemFactory.createItem("FRESHWATER"), 30000);
 				ret.addItemOffshore(ItemFactory.createItem("EXPLORER"), 2);
 				ret.addItemOffshore(ItemFactory.createItem("BISCUIT"), 15000);
 				ret.addItemOffshore(ItemFactory.createItem("WOOD"), 100);
