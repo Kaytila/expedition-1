@@ -129,6 +129,56 @@ public class TestWaterConsumption
 		logger.debug("test: 1 explorer, 100 food, 100 water END");
 		logger.debug("==========================================");
 	}
+	
+	@Test
+	public void testWithProjectedFoodAndProjectedWater()
+	{
+		logger.debug("test: 1 explorer, 100 food, 100 water Projected vs normal vs offshore BEGIN");
+		ret.addItemOffshore(food, 100);
+		ret.addItemOffshore(water, 100);
+		ret.setMovementMode(MovementMode.SHIP);
+		
+		/*
+		logger.debug("food: " + ret.getCurrentFood());
+		logger.debug("daily food consumption: " + ret.getDailyFoodConsumption());
+		logger.debug("food days: " + ret.getFoodDays());
+		logger.debug("projected food days: " + ret.getProjectedFoodDays());
+		logger.debug("offshore food days: " + ret.getOffshoreFoodDays());
+		logger.debug("water: " + ret.getCurrentWater());
+		logger.debug("daily water consumption: " + ret.getDailyWaterConsumption());
+		logger.debug("water days: " + ret.getWaterDays());
+		logger.debug("projected water days: " + ret.getProjectedWaterDays());
+		logger.debug("offshore water days: " + ret.getOffshoreWaterDays());
+		*/
+		assertEquals(33, ret.getFoodDays());
+		assertEquals(33, ret.getProjectedFoodDays());
+		assertEquals(33, ret.getOffshoreFoodDays());
+		
+		assertEquals(33, ret.getWaterDays());
+		assertEquals(33, ret.getProjectedWaterDays());
+		assertEquals(33, ret.getOffShoreWaterDays());
+		
+		logger.debug("test: 1 explorer, 100 food, 100 water Projected vs normal vs offshore END");
+		logger.debug("==========================================");
+	}
+	
+	
+	@Test
+	public void testFoodAndWaterConsumptionTemperatureZones()
+	{
+		logger.debug("test: 1 explorer, 100 food, 100 water temperature zones BEGIN");
+		ret.addItemOffshore(food, 100);
+		ret.addItemOffshore(water, 100);
+		ret.setMovementMode(MovementMode.SHIP);
+
+		logger.debug("temperature: " + level.getTemperature());
+		
+		logger.debug("test: 1 explorer, 100 food, 100 water temperature zones END");
+		logger.debug("==========================================");
+	}
+	
+	
+	
 
 	@Test
 	public void testWithOutFood()

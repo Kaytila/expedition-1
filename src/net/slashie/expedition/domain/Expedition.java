@@ -812,10 +812,16 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 		{
 			if (getLevel() instanceof ExpeditionMicroLevel)
 				return;
+			if (UserInterface.getUI() != null)
+			{
 			UserInterface.getUI().refresh();
+			}
 			if (deathCause == null)
 				deathCause = DeathCause.DEATH_BY_SLAYING;
+			if (UserInterface.getUI() != null)
+			{
 			UserInterface.getUI().onPlayerDeath();
+			}
 			informPlayerEvent(DEATH);
 		}
 	}
@@ -1954,7 +1960,9 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 	 */
 	public int getProjectedFoodDays()
 	{
-		return (int) Math.round((double) getCurrentFood() / (double) foodConsumerDelegate.getDailyFoodConsumption());
+		int fooddays = (int) Math.round((double) getCurrentFood() / (double) foodConsumerDelegate.getDailyFoodConsumption());
+		//logger.debug("projected food days: " + fooddays);
+		return fooddays;
 	}
 
 	
@@ -1975,7 +1983,10 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 	 */
 	public int getProjectedWaterDays()
 	{
-		return (int) Math.round((double) getCurrentWater() / (double) foodConsumerDelegate.getDailyWaterConsumption());
+		int waterdays = (int) Math.round((double) getCurrentWater() / (double) foodConsumerDelegate.getDailyWaterConsumption());
+		logger.debug("get Projected Water days: " + waterdays);
+		logger.debug("daily water consumption: " + foodConsumerDelegate.getDailyWaterConsumption());
+		return waterdays;
 	}
 	
 	
@@ -2283,10 +2294,13 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 	public double getWaterConsumptionMultiplier()
 	{
 		if (getLevel() instanceof ExpeditionMacroLevel)
+		{		
 			return TemperatureRules.getTemperatureWaterModifier(getLocation().getTemperature());
+		}		
 		else
+		{			
 			return 1;
-
+		}
 	}
 
 	public int getWaterDays()
@@ -3536,5 +3550,14 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 	public void setMaxThirstResistance(int maxThirstResistance)
 	{
 		this.maxThirstResistance = maxThirstResistance;
+	}
+
+	public int getOffShoreWaterDays()
+	{
+		MovementMode currentMovementMode = getMovementMode();
+		setMovementMode(MovementMode.SHIP);
+		int ret = getProjectedWaterDays();
+		setMovementMode(currentMovementMode);
+		return ret;
 	}
 }

@@ -1803,7 +1803,7 @@ public class ExpeditionOryxUI extends GFXUserInterface implements ExpeditionUser
 				}
 			}
 		}
-
+		 
 		@Override
 		public boolean validateBreak(ItemContainer from, ItemContainer to)
 		{

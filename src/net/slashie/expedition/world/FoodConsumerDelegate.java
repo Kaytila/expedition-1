@@ -73,7 +73,7 @@ public class FoodConsumerDelegate implements Serializable
 					String cause = "starve";
 					if (unitsToKill == 1)
 						cause = "starves";
-					foodConsumer.killUnits(unitsToKill, cause);
+					foodConsumer.killUnits(unitsToKill, cause);					
 				}
 			}
 		}
@@ -135,7 +135,7 @@ public class FoodConsumerDelegate implements Serializable
 					String cause = "thirst";
 					if (unitsToKill == 1)
 						cause = "thirsts";
-					foodConsumer.killUnits(unitsToKill, cause);
+					foodConsumer.killUnits(unitsToKill, cause);					
 				}
 			}
 		}
@@ -313,7 +313,7 @@ public class FoodConsumerDelegate implements Serializable
 		{
 			if (equipment.getItem() instanceof ExpeditionUnit)
 			{
-				ExpeditionUnit unit = (ExpeditionUnit) equipment.getItem();
+				ExpeditionUnit unit = (ExpeditionUnit) equipment.getItem();				
 				dailyWaterConsumption += unit.getDailyWaterConsumption() * equipment.getQuantity();
 			}
 		}

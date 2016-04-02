@@ -1,7 +1,6 @@
 package net.ck.expedition.action.tests;
 import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
-
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -236,7 +235,7 @@ public class TestForageFood
 		a.execute(100);
 		int multiplier = (int) Math.ceil(ret.getItemCount("SAILOR") / 12.0d);
 		logger.debug("forage quantity for deep sea: " + cell.getForageQuantity());
-		assertEquals(cell.getForageQuantity()* multiplier, 30 );
+		assertEquals(cell.getForageQuantity() * multiplier, 30);
 	}
 
 	@Test
@@ -244,7 +243,7 @@ public class TestForageFood
 	{
 
 		level.setPlayer(ret);
-		ret.setPosition(new Position(-261900,42300,0));
+		ret.setPosition(new Position(-261900, 42300, 0));
 		level.setWeather(Weather.WINDY);
 		OverworldExpeditionCell cell = (OverworldExpeditionCell) ret.getLevel().getMapCell(ret.getPosition());
 		int multiplier = (int) Math.ceil(ret.getTotalUnits() / 10.0d);
@@ -254,16 +253,15 @@ public class TestForageFood
 		logger.debug("multiplier: " + multiplier);
 		a.setPerformer(ret);
 		a.execute(100);
-		assertEquals(multiplier*cell.getForageQuantity(), 80);
+		assertEquals(multiplier * cell.getForageQuantity(), 80);
 	}
-	
-	
+
 	@Test
 	public void testWindyGrass()
 	{
 
 		level.setPlayer(ret);
-		ret.setPosition(new Position(-269820,39600,0));
+		ret.setPosition(new Position(-269820, 39600, 0));
 		level.setWeather(Weather.WINDY);
 		OverworldExpeditionCell cell = (OverworldExpeditionCell) ret.getLevel().getMapCell(ret.getPosition());
 		int multiplier = (int) Math.ceil(ret.getTotalUnits() / 10.0d);
@@ -273,7 +271,6 @@ public class TestForageFood
 		logger.debug("multiplier: " + multiplier);
 		a.setPerformer(ret);
 		a.execute(100);
-		assertEquals(multiplier*cell.getForageQuantity(), 80);
+		assertEquals(multiplier * cell.getForageQuantity(), 80);
 	}
-	
 }
