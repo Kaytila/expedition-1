@@ -25,6 +25,7 @@ import net.slashie.expedition.world.ExpeditionMicroLevel;
 import net.slashie.serf.action.Action;
 import net.slashie.serf.action.Actor;
 import net.slashie.serf.ui.UserAction;
+import net.slashie.serf.ui.UserInterface.SoundCycle;
 import net.slashie.serf.ui.oryxUI.Assets;
 import net.slashie.serf.ui.oryxUI.ContinuousGFXUISelector;
 import net.slashie.serf.ui.oryxUI.GFXUserInterface;
@@ -62,6 +63,7 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 	private Image smallButtonHover;
 	private JPanel buttonsPanel;
 	private JPanel commandPanel;
+	private GFXUserInterface ui;
 
 	@Override
 	public void init(SwingSystemInterface psi, UserAction[] gameActions, Properties uiProperties, Action advance,
@@ -83,6 +85,7 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 		initializeButtonsPanel(layout, assets, keyBindings);
 		initializeCommandsPanel(layout, assets, keyBindings);
 
+		this.ui = ui;
 	}
 
 	/**
@@ -127,6 +130,39 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 		quitButton.setPopupText("Quit (Q)");
 		logButton.setPopupText("Message Log (L)");
 
+		
+		musicButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseClicked(java.awt.event.MouseEvent evt) 
+		    {
+		    	if (ui.getCurrentSoundCycle().nextCycle() == SoundCycle.MUTE)
+		    	{
+		    		musicButton.setFace(assets.getImageAsset("BTN_MUSIC_DIS"));	
+		    		musicButton.repaint();
+		    	}
+		    	else
+		    	{
+		    		musicButton.setFace(assets.getImageAsset("BTN_MUSIC"));
+		    		musicButton.repaint();
+		    	}
+		    }
+		});
+
+		sfxButton.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseClicked(java.awt.event.MouseEvent evt) 
+		    {
+		    	if (ui.getCurrentSFXCycle().nextCycle() == SoundCycle.MUTE)
+		    	{
+		    		sfxButton.setFace(assets.getImageAsset("BTN_SFX_DIS"));	
+		    		sfxButton.repaint();
+		    	}
+		    	else
+		    	{
+		    		sfxButton.setFace(assets.getImageAsset("BTN_SFX"));
+		    		sfxButton.repaint();
+		    	}
+		    }
+		});
+		
 		commandPanel.add(musicButton);
 		commandPanel.add(sfxButton);
 		commandPanel.add(saveButton);
@@ -145,8 +181,7 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 	private void initializeButtonsPanel(Layout layout, Assets assets, Properties keyBindings)
 	{
 		buttonsPanel = new JPanel();
-		buttonsPanel.setOpaque(false);
-		// buttonsPanel.setLayout(new GridLayout(3,4));
+		buttonsPanel.setOpaque(false);		
 		buttonsPanel.setLayout(new FlowLayout());
 		buttonsPanel.setBorder(BorderFactory.createLineBorder(Color.white));
 		buttonsPanel.setBounds(layout.ACTIONS_PANEL_BOUNDS);
@@ -222,20 +257,7 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 	public void activate()
 	{
 		super.activate();
-		// Reenable buttons
-		/*
-		armButton.setEnabled(true);
-		inventoryButton.setEnabled(true);
-		lookButton.setEnabled(true);
-		buildButton.setEnabled(true);
-		dropButton.setEnabled(true);
-		mountButton.setEnabled(true);
-		repairButton.setEnabled(true);
-		resetButton.setEnabled(true);
-		chopButton.setEnabled(true);
-		anchorButton.setEnabled(true);
-		searchAroundButton.setEnabled(true);
-		*/		
+
 		commandPanel.setEnabled(true);
 		buttonsPanel.setVisible(true);
 		buttonsPanel.setEnabled(true);
@@ -255,18 +277,6 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 	{
 		super.deactivate();
 		buttonsPanel.setEnabled(false);
-/*
-		armButton.setEnabled(false);
-		buildButton.setEnabled(false);
-		dropButton.setEnabled(false);
-		inventoryButton.setEnabled(false);
-		lookButton.setEnabled(false);
-		mountButton.setEnabled(false);
-		repairButton.setEnabled(false);
-		resetButton.setEnabled(false);
-		anchorButton.setEnabled(false);
-		searchAroundButton.setEnabled(false);
-		chopButton.setEnabled(false);*/
 		commandPanel.setEnabled(false);
 	}
 
