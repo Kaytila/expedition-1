@@ -85,8 +85,7 @@ public class TestWaterConsumption
 		GlobeMapModel.setSingleton(new FlatMapModelSeconds());
 		level = new ExpeditionMacroLevel("scenarios/theNewWorld/world", 3374, 2939, 50, 50, pattern.getCharMap(),
 				new Position(-427, 2235), GlobeMapModel.getSingleton());
-		ret.setLevel(level);
-
+		ret.setLevel(level);				
 	}
 
 	@AfterClass

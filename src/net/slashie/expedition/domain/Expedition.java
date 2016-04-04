@@ -361,6 +361,13 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 		setFame(0);
 	}
 
+	public String toString()
+	{
+		return getExpeditionMorale() + " " + getThirstResistance() + " " + getHungerResistance();
+		
+	}
+	
+	
 	public int getExpeditionMorale()
 	{
 		return expeditionMorale;
@@ -1960,8 +1967,7 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 	 */
 	public int getProjectedFoodDays()
 	{
-		int fooddays = (int) Math.round((double) getCurrentFood() / (double) foodConsumerDelegate.getDailyFoodConsumption());
-		//logger.debug("projected food days: " + fooddays);
+		int fooddays = (int) Math.round((double) getCurrentFood() / (double) foodConsumerDelegate.getDailyFoodConsumption());		
 		return fooddays;
 	}
 
@@ -1984,8 +1990,6 @@ public class Expedition extends Player implements FoodConsumer, UnitContainer, I
 	public int getProjectedWaterDays()
 	{
 		int waterdays = (int) Math.round((double) getCurrentWater() / (double) foodConsumerDelegate.getDailyWaterConsumption());
-		logger.debug("get Projected Water days: " + waterdays);
-		logger.debug("daily water consumption: " + foodConsumerDelegate.getDailyWaterConsumption());
 		return waterdays;
 	}
 	

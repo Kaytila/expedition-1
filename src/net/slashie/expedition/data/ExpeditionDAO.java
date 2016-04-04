@@ -5,8 +5,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import net.slashie.expedition.domain.Armor;
+import net.slashie.expedition.domain.Armor.ArmorType;
+import net.slashie.expedition.domain.Expedition.MovementSpeed;
 import net.slashie.expedition.domain.ExpeditionItem;
 import net.slashie.expedition.domain.ExpeditionUnit;
 import net.slashie.expedition.domain.Food;
@@ -18,21 +19,21 @@ import net.slashie.expedition.domain.StoreShipInfo;
 import net.slashie.expedition.domain.Vehicle;
 import net.slashie.expedition.domain.Water;
 import net.slashie.expedition.domain.Weapon;
-import net.slashie.expedition.domain.Armor.ArmorType;
-import net.slashie.expedition.domain.Expedition.MovementSpeed;
 import net.slashie.expedition.domain.Weapon.WeaponType;
 import net.slashie.expedition.item.ItemFactory;
 import net.slashie.expedition.item.Mount;
 import net.slashie.expedition.item.StorageType;
 import net.slashie.expedition.town.Building;
 import net.slashie.expedition.town.Farm;
+import net.slashie.expedition.town.House;
+import net.slashie.expedition.town.Plaza;
+import net.slashie.expedition.town.Storage;
 import net.slashie.expedition.world.AnimalNest;
 import net.slashie.expedition.world.BotanyCrop;
 import net.slashie.expedition.world.Culture;
 import net.slashie.expedition.world.ExpeditionFeature;
 import net.slashie.expedition.world.Plant;
 import net.slashie.expedition.world.StoreFactory;
-import net.slashie.expedition.world.agents.DayShiftAgent;
 import net.slashie.libjcsi.ConsoleSystemInterface;
 import net.slashie.serf.ui.AppearanceFactory;
 import net.slashie.serf.ui.consoleUI.CharAppearance;
@@ -633,22 +634,12 @@ public class ExpeditionDAO {
 		
 	}
 
-	private final static Map<StorageType, Integer> NO_CAPABILITIES = new HashMap<StorageType, Integer>();
-	private final static Map<StorageType, Integer> PLAZA_CAPABILITIES = new HashMap<StorageType, Integer>();
-	static {
-		PLAZA_CAPABILITIES.put(StorageType.WAREHOUSE, 50);
-	}
-	private final static Map<StorageType, Integer> STORAGE_CAPABILITIES = new HashMap<StorageType, Integer>();
-	static {
-		STORAGE_CAPABILITIES.put(StorageType.WAREHOUSE, 300);
-	}
 	
 	private static Building[] buildings = new Building[]{
-		new Building("PLAZA", "Plaza", "Center of community life", 40, DayShiftAgent.TICKS_PER_DAY * 120, 0, 14, PLAZA_CAPABILITIES),
-		new Building("HOUSE", "House", "Simple wooden house, can hold 10 persons", 40, DayShiftAgent.TICKS_PER_DAY * 90, 10, 7, NO_CAPABILITIES),
-		
-		
-		new Building("STORAGE", "Storage Tower", "Can hold 300 units of foraged food", 60, DayShiftAgent.TICKS_PER_DAY * 240, 0, 14, STORAGE_CAPABILITIES),
+		//new Building("PLAZA", "Plaza", "Center of community life", 40, DayShiftAgent.TICKS_PER_DAY * 120, 0, 14, PLAZA_CAPABILITIES),
+		new Plaza(),
+		new House(),
+		new Storage (),
 		new Farm(),
 		/*
 		new Building("MILL", "Mill", "Transforms grain into bread", 60, DayShiftAgent.TICKS_PER_DAY * 80, 0, 14),

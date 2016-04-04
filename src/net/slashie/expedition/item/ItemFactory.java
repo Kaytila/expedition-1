@@ -53,10 +53,16 @@ public class ItemFactory {
 		return ret.clone();
 	}
 
-	
-	public static ExpeditionUnit createUnit(String fullID, String weaponType) {
-		
-		return null;
+	/**
+	 * 
+	 * @param fullID "EXPLORER"
+	 * @param weaponType currently unused
+	 * @return returns the unit, cast to a unit, not an item
+	 */
+	public static ExpeditionUnit createUnit(String fullID, String weaponType) 
+	{
+		ExpeditionUnit unit = (ExpeditionUnit) definitions.get(fullID);
+		return unit;
 	}
 
 	public static int getPalosStorePrice(String fullId) {

@@ -207,6 +207,11 @@ public class ExpeditionGame extends SworeGame
 		setGameTime(3, 8, 1492, 13, 0);
 	}
 
+	public static void setCurrentGame(ExpeditionGame currentGame)
+	{
+		ExpeditionGame.currentGame = currentGame;
+	}
+
 	private void loadMetadata()
 	{
 		LevelMetaData md = null;

@@ -91,6 +91,19 @@ public class MessengerService
 			return "Midnight";
 		}
 	}
+
+
+	public static void showBlockingMessage(String string)
+	{		
+		if (UserInterface.getUI() != null)
+		{
+			((ExpeditionUserInterface) UserInterface.getUI()).showBlockingMessage(string);
+		}
+		else
+		{
+			logger.debug(string);
+		}
+	}
 	
 	
 }

@@ -223,6 +223,7 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 	{
 		super.activate();
 		// Reenable buttons
+		/*
 		armButton.setEnabled(true);
 		inventoryButton.setEnabled(true);
 		lookButton.setEnabled(true);
@@ -234,20 +235,10 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 		chopButton.setEnabled(true);
 		anchorButton.setEnabled(true);
 		searchAroundButton.setEnabled(true);
-		/*
-		 * musicButton.setEnabled(true); sfxButton.setEnabled(true);
-		 * saveButton.setEnabled(true); quitButton.setEnabled(true);
-		 * logButton.setEnabled(true);
-		 */
+		*/		
 		commandPanel.setEnabled(true);
-		// Make buttons visible
-		/* sfxButton.setVisible(true); */
 		buttonsPanel.setVisible(true);
-		/*
-		 * musicButton.setVisible(true); sfxButton.setVisible(true);
-		 * saveButton.setVisible(true); quitButton.setVisible(true);
-		 * logButton.setVisible(true);
-		 */
+		buttonsPanel.setEnabled(true);
 		commandPanel.setVisible(true);
 		updateButtonStatus();
 	}
@@ -256,12 +247,6 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 	{
 		super.shutdown();
 		buttonsPanel.setVisible(false);
-
-		/*
-		 * musicButton.setVisible(false); sfxButton.setVisible(false);
-		 * saveButton.setVisible(false); quitButton.setVisible(false);
-		 * logButton.setVisible(false);
-		 */
 		commandPanel.setVisible(false);
 	}
 
@@ -270,7 +255,7 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 	{
 		super.deactivate();
 		buttonsPanel.setEnabled(false);
-
+/*
 		armButton.setEnabled(false);
 		buildButton.setEnabled(false);
 		dropButton.setEnabled(false);
@@ -281,13 +266,7 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 		resetButton.setEnabled(false);
 		anchorButton.setEnabled(false);
 		searchAroundButton.setEnabled(false);
-		chopButton.setEnabled(false);
-
-		/*
-		 * musicButton.setEnabled(false); sfxButton.setEnabled(false);
-		 * saveButton.setEnabled(false); quitButton.setEnabled(false);
-		 * logButton.setEnabled(false);
-		 */
+		chopButton.setEnabled(false);*/
 		commandPanel.setEnabled(false);
 	}
 
@@ -297,9 +276,7 @@ public class ExpeditionContinuousGFXUISelector extends ContinuousGFXUISelector
 		{
 			@Override
 			public void actionPerformed(ActionEvent e)
-			{
-				logger.debug(Thread.currentThread().getStackTrace()[2].getMethodName());
-				// MethodNameTest.methodName();
+			{				
 				selectedCharCode = charkey;
 				si.recoverFocus();
 			}
